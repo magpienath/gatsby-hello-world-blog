@@ -5,15 +5,15 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const SecondPage = ({data}) => {
-  const blog = data.allMarkdownRemark.edges[0].node.frontmatter
+  const blog = data.allMarkdownRemark.edges[1].node.frontmatter
+  const body = data.allMarkdownRemark.edges[1].node
   return (
     <Layout>
     <SEO title="Page two" />
     <h1>{blog.title}</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
     <p>{blog.description}</p>
-    <p dangerouslySetInnerHTML={{__html: data.allMarkdownRemark.edges[0].node.html }} />
+    <p dangerouslySetInnerHTML={{__html: body.html }} />
+     <Link to="/">Go back to the homepage</Link>
   </Layout>
   )
 }
