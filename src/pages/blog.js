@@ -5,8 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const SecondPage = ({data}) => {
-  const blog = data.allMarkdownRemark.edges[1].node.frontmatter
-  const body = data.allMarkdownRemark.edges[1].node
+  const blog = data.markdownRemark.frontmatter
+  const body = data.markdownRemark.html
   return (
     <Layout>
     <SEO title="Page two" />
@@ -22,17 +22,14 @@ export default SecondPage
 
 export const pageQuery = graphql`
 query MyQuery {
-  allMarkdownRemark {
-    edges {
-      node {
-        frontmatter {
-          date
-          description
-          title
-        }
-        html
-      }
+  markdownRemark(frontmatter: {title: {glob: "Welcome Blog"}}) {
+    id
+    frontmatter {
+      heading
+      title
+      description
     }
+    html
   }
 }
 `
