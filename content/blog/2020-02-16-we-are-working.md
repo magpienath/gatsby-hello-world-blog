@@ -1,6 +1,6 @@
 ---
-title: We are working
+title: Welcome Blog
 date: 2020-02-16T17:57:08.266Z
-description: test blog
+description: My first blog post
 ---
-Just seeing if I can get this to work. We did succeed.
+Today we got netlify cms to work. Well done to me! :)
